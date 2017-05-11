@@ -155,6 +155,7 @@ postgresql,SELECT @a INTO @b;,CREATE TABLE @b AS\nSELECT\n@a;
 postgresql,#,
 postgresql,SELECT TOP @([0-9]+)rows @a;,SELECT @a LIMIT @rows;
 redshift,"ROUND(@a,@b)","ROUND(CAST(@a AS FLOAT),@b)"
+redshift,"CONCAT(@a, @b, @c)","CONCAT(@a, CONCAT(@b, @c))"
 redshift,"CONVERT(DATE, @a)","TO_DATE(@a, 'yyyymmdd')"
 redshift,"DATEADD(second,@seconds,@datetime)",(@datetime + @seconds*INTERVAL'1 second')
 redshift,"DATEADD(minute,@minutes,@datetime)",(@datetime + @minutes*INTERVAL'1 minute')
